@@ -13,4 +13,3 @@ class Log(Model):
         database = db
 
 
-Log.create(parameter="{}", result="{}").save()
