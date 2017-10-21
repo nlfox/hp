@@ -9,3 +9,4 @@ class Parameter(object):
         param = ""
         for i, v in self.obj.iteritems():
             param += "-" + i + " " + v + " "
+        return param

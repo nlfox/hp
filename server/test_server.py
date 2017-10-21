@@ -15,4 +15,5 @@ while True:
         currProcess.kill()
 
     parameter = Parameter(data)
+    print "memcached " + parameter.getParam()
     currProcess = subprocess.Popen("memcached " + parameter.getParam(), shell=True)

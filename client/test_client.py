@@ -12,8 +12,12 @@ def send(message):
 
 
 def do(parameter):
+    send(parameter)
     time.sleep(3)
     subprocess.call('treadmill_memcached -v 1 --hostname=nsl017 --port=11211 -output_file="/tmp/1.txt" --logtostderr=1')
     tmp_file = open("/tmp/1.txt").readlines()
     result = tmp_file[0]
     Log.create(parameter=parameter, result=result)
+
+
+do({"t": "4"})
