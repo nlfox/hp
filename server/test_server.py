@@ -2,7 +2,7 @@ import socket
 import subprocess
 from parameter import Parameter
 
-UDP_IP = "127.0.0.1"
+UDP_IP = "0.0.0.0"
 UDP_PORT = 5005
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -16,4 +16,4 @@ while True:
 
     parameter = Parameter(data)
     print "memcached " + parameter.getParam()
-    currProcess = subprocess.Popen("memcached " + parameter.getParam(), shell=True)
+    currProcess = subprocess.Popen("exec memcached " + parameter.getParam(),shell=True)
