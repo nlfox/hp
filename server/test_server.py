@@ -1,5 +1,8 @@
 import socket
 import subprocess
+
+import time
+
 from parameter import Parameter
 
 UDP_IP = "0.0.0.0"
@@ -13,6 +16,7 @@ while True:
     print "received message:", data
     if currProcess is not None:
         currProcess.kill()
+        time.sleep(2)
 
     parameter = Parameter(data)
     print "memcached " + parameter.getParam()
