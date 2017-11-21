@@ -1,7 +1,7 @@
 import datetime
 from peewee import *
 import json
-db = SqliteDatabase('/Users/nlfox/server.db')
+db = SqliteDatabase('server.db')
 
 
 class Log(Model):
@@ -12,10 +12,4 @@ class Log(Model):
 
     class Meta:
         database = db
-
-
-for log in Log.select():
-    print log.parameter,
-    res = json.loads(log.result)
-    print res["request_latency"]["average"], res["request_latency"]["p99"]
 
