@@ -7,6 +7,7 @@ class Parameter(object):
             self.obj = json.loads(jsonData)
         elif jsonData is dict:
             self.obj = jsonData
+        self.name = "memcached"
 
     def getParamStr(self):
         param = ""
@@ -17,5 +18,8 @@ class Parameter(object):
     def addParam(self, k, v):
         self.obj[k] = v
 
+    def setName(self, name):
+        self.name = name
+
     def toJson(self):
-        return json.dumps(self.obj)
+        return json.dumps({"name": self.name, "data": self.obj})
