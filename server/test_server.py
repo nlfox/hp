@@ -20,4 +20,4 @@ while True:
 
     parameter = Parameter(data)
     print "memcached " + parameter.getParam()
-    currProcess = subprocess.Popen("exec memcached " + parameter.getParam(),shell=True)
+    currProcess = subprocess.Popen("exec " + parameter.getParam(), shell=True)

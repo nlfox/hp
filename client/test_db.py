@@ -9,6 +9,7 @@ class Log(Model):
     client_parameter = TextField()
     time = DateTimeField(default=datetime.datetime.now)
     result = TextField()
+    tag = TextField()
 
     class Meta:
         database = db
