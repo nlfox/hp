@@ -10,5 +10,5 @@ class Parameter(object):
     def getParam(self):
         param = self.program + " "
         for i, v in self.obj.iteritems():
-            param += "-" + i + " " + v + " "
+            param += "-" + str(i) + " " + str(v) + " "
         return param
