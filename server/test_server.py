@@ -19,5 +19,5 @@ while True:
         time.sleep(2)
 
     parameter = Parameter(data)
-    print "memcached " + parameter.getParam()
+    print parameter.getParam()
     currProcess = subprocess.Popen("exec " + parameter.getParam(), shell=True)

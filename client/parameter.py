@@ -3,9 +3,9 @@ import json
 
 class Parameter(object):
     def __init__(self, jsonData):
-        if jsonData is str:
+        if type(jsonData) is str:
             self.obj = json.loads(jsonData)
-        elif jsonData is dict:
+        elif type(jsonData) is dict:
             self.obj = jsonData
         self.name = "memcached"
 

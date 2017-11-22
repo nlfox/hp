@@ -16,8 +16,8 @@ def do(client_parameter, server_parameter, tag="test", server_program="memcached
     client_parameter = Parameter(client_parameter)
     client_parameter.setName("treadmill")
     server_parameter = Parameter(server_parameter)
-    client_parameter.addParam("logtostderr",1)
-    client_parameter.addParam("number_of_workers",4)
+    client_parameter.addParam("logtostderr", 1)
+    client_parameter.addParam("number_of_workers", 4)
     server_parameter.setName(server_program)
     send(server_parameter.toJson())
     time.sleep(3)
@@ -29,7 +29,12 @@ def do(client_parameter, server_parameter, tag="test", server_program="memcached
         shell=True)
     tmp_file = open("/tmp/" + time_stamp + ".txt").readlines()
     result = tmp_file[0]
-    Log.create(client_parameter=client_parameter.toJson(), server_parameter=server_parameter.toJson(), result=result,tag=tag)
+    Log.create(client_parameter=client_parameter.toJson(), server_parameter=server_parameter.toJson(), result=result,
+               tag=tag)
+
+
+confstr = """'{"pools":{"A":{"servers":["127.0.0.1:5001"]}},"route":"PoolRoute|A"}'"""
+
 for j in xrange(5):
-    for i in range(100000,800000,25000):
-        do({"request_per_second":i}, {"t":4 })
+    for i in range(100000, 800000, 25000):
+        do({"request_per_second": i}, {"p": 5000, "-config-str": confstr}, "multiprocess", "mcrouter")
